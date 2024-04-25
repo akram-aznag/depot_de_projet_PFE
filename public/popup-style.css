@@ -1,0 +1,623 @@
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.popup{
+    position: fixed;
+    top: -100vh;
+    left: 0px;
+    width: 100%;
+   height: 100%;
+   z-index: 1000; 
+}
+.popup .overlay{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+}
+.popup .popup-content{
+position: absolute;
+top: 55%;
+left: 50%;
+transform: translate(-50%,-50%) scale(1.15);
+/*width: 65%;*/
+width: 80%;
+max-height: 80%;
+background-color: #fff;
+padding: 25px;
+opacity: 0;
+border-radius: 10px;
+box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.5);
+transition: all 300ms ease-in-out;
+overflow-y: scroll;
+
+}
+.popup .popup-content h2{
+    margin: 10px 0;
+    font-size: 25px;
+    color: #111;
+    text-align: center;
+}
+.popup .popup-content p{
+    margin: 10px 0;
+    color: #222;
+    font-size: 16px;  
+ }
+ .popup .popup-content .controllers{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px 0px;
+ }
+ .popup .popup-content .controllers button{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+ }
+ .popup .popup-content .controllers .close-btn{
+   background: transparent;
+   color: #3284ed;
+ }
+ .popup .popup-content .controllers .submit-btn{
+   background:  #3284ed;
+   color:white;
+ }
+ .popup.active{
+    top: 0px;
+    transition:top 0ms ease-in-out 0ms ;
+ }
+ .popup.active .overlay{
+   opacity: 1;
+    transition:all 300ms ease-in-out  ;
+ }
+ .popup.active .popup-content{
+  transform: translate(-50%,-50%) scale(1);
+  opacity: 1;
+ }
+ .comment-input{
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    border-radius: 10px
+    ;outline: none;
+    background: #eeeeee;
+    border-color: #fff;
+ }
+ h5{
+    margin-top: 20px; margin-bottom: 28px;
+ }
+ .user-info{
+    display: flex; 
+    margin-bottom: 20px;
+    
+ }
+ .user-img{
+    height: 100px;width: 140px;
+ }
+ .IMG{
+    height: 40px;border-radius: 40px;width: 40px;
+ }
+ .comment-content .card{
+    width: 105%;
+    position: relative;
+    right: 46px;
+    bottom: 10px;
+ }
+ .comment-content .card .card-body{
+    position: relative;bottom: 10px;
+ }
+ .username{
+    text-transform: capitalize;font-weight: 500;
+ }
+ .time{
+    font-size: 15px;text-align: end;
+ }
+ .action-controller{
+  display: flex;
+  justify-content: space-between;
+ }
+ .replies-btn,.reply-btn{
+    font-weight: 600;text-transform: capitalize;cursor: pointer;
+ }
+ .replies-btn:hover{
+  text-decoration: underline;
+ }
+ .reply-btn:hover{
+  text-decoration: underline;
+
+ }
+ .user-info-reply{
+display: none;
+margin-top: 15px;
+ }
+.user-info-reply.active{
+  display: flex;
+ }
+ .comment-content-reply .card{
+    position: relative;
+    padding: 15px 20px;
+    background: #eeeeee;
+    width: 530px;
+    position: relative;
+    left: 27px;
+
+ }
+.comment-content .card .card-body{
+   min-width: 604px;
+    max-width: 604px;
+}
+ .card-body-reply .card-title-reply{
+    position: relative;bottom: 10px;
+ }
+ .user-info-reply{
+    padding: 5px 10px;
+ }
+
+ .user-info-reply-2 {
+   /* display: flex;*/
+   display: none;
+    position: relative;
+    left: 3px;
+    margin-top: 15px;
+ }
+ .user-info-reply-2.active{
+  display: flex;
+ }
+
+ .user-info-reply-2 .user-img-2{
+    position: relative;
+    left: 65px;
+ }
+ .comment-content-reply-2 .card {
+   width: 400px;
+   height: 131px;
+   position: relative;
+   left: 81px;
+}
+ .card .card-body-reply-2{
+    padding: 10px 15px;
+ }
+ .reply-input-field{
+  display: none;
+ }
+ .reply-input-field.active{
+  display: block;
+ }
+
+.reply-input-field-2.active {
+   display: flex;
+   justify-content: space-between;
+}
+
+
+.reply-input-field-2.active  input[name="comment_reply_2"]{
+   padding: 10px 10px;
+   border: 0.5px black solid;
+   border-radius: 5px;
+   width: 100%;
+
+   
+}
+/**yoo*/
+.reply-input-field-2.active button{
+   background-color: #343a40;
+   color: #f8f9fa;
+   border: 2px solid transparent;
+   position: relative;
+   bottom: 8px;
+
+   
+}
+
+/**/
+.reply-input-field-2{
+  display: none;
+ }
+ .reply-input-field-2.active{
+   display: flex;
+   justify-content: space-between;
+ }
+ 
+
+ @media screen and (max-width:1200px) {
+   .comment-content-reply{
+      position: relative;
+      left: 49px
+   }
+   .comment-content-reply .card{
+      width: 530px;
+      position: relative;
+      left: -16px;
+  }
+   }
+ 
+ @media screen and (max-width:1000px) {
+   .comment-content-reply{
+     position: relative;
+     left: 52px;
+       }
+       .comment-content{
+         position: relative;
+         left: 10px;
+      }
+      .comment-content-reply-2 .card{
+         width: 300px;
+         height: 128px;
+         position: relative;
+         left: 84px;
+         
+      }
+ }
+ @media screen and (max-width:850px) {
+    .comment-content{
+      position: relative;
+      left: 23px;
+      width: 88%;
+   }
+   .comment-content-reply{
+     position: relative;
+     left: 48px;
+       }
+   .comment-content-reply .card {
+         width: 497px;
+         position: relative;
+         left: -53px;
+     }
+   .comment-content-reply-2 .card{
+      width: 431px;
+      height: 151px;
+      position: relative;
+      left: 69px;
+         
+      }
+ }
+ @media screen and (max-width:750px) {
+   .comment-content{
+     position: relative;
+     left: 24px;
+  }
+  .comment-content-reply .card{
+   width: 426px;
+    position: relative;
+    left: -135px;
+      }
+  .comment-content-reply-2 .card{
+   width: 342px;
+   height: 151px;
+   position: relative;
+   left: 73px;
+   
+}
+.card-text{
+   font-size: 15px;
+   max-width: 91%;
+}
+        
+     }
+@media screen and (max-width:650px) {
+      .comment-content{
+        position: relative;
+        left: 22px;
+     }
+     .comment-content-reply{
+       position: relative;
+       left: 58px;
+       width: 57%;
+      }
+     .comment-content-reply-2 {
+            width: 254px;
+            position: relative;
+            left: 3px;
+        }
+     .comment-content-reply-2 .card{
+      position: relative;
+      left: 73px;
+      height: 202px;
+      width: 50%;
+      
+   }
+   .card-text{
+      font-size: 15px;
+      max-width: 72%;
+   }
+   .comment-content .card {
+      width: 105%;
+      position: relative;
+      right: 33px;
+      bottom: 10px;
+  }
+           
+        }
+
+@media screen and (max-width:550px) {
+
+
+   .user-info{
+      display: flex;
+      flex-direction: column;
+   }
+   .user-info .user-img{
+      height: 100px;
+    width: 140px;
+    position: relative;
+    left: 173px;
+    top: 26px;
+   }
+   .comment-content{
+      position: relative;
+      left: -36px;
+      width: 928px;
+   }
+   .comment-content .card{
+      position: relative;
+      left: 42px;
+      width: 384px;
+   }
+   .reply_comment_filed {
+      display: flex;
+      
+      flex-direction: column;
+  }
+  .reply_comment_filed > button {
+   background-color: #343a40;
+   color: #f8f9fa;
+   border: 2px solid transparent;
+   position: relative;
+   bottom: -2px;
+   width: 16%;
+}
+
+
+   .comment-content .action-controller .parent-reply{
+      position: relative;
+    bottom: 5px;
+    right: 243px;
+   }
+   .user-info .comment-content.active{
+      position: relative;
+      left: 42px;
+      width: 286px;
+   }
+
+   .comment-content .action-controller .parent-reply.active{
+      position: relative;
+      right: -1px;
+      bottom: 5px;
+   }
+
+   .comment-content-reply {
+     
+      position: relative;
+      left: -52px;
+      bottom: 42px;
+   }
+   .user-info-reply.active{
+     
+     display: flex;
+     flex-direction: column;
+   }
+
+
+
+
+   .comment-content-reply .card{
+     
+      width: 352px;
+    position: relative;
+    right: 66px;
+   }
+
+
+   .user-info-reply.active .comment-content-reply .action-controller .reply-btn{
+      position: relative;
+      right: 1px;
+      bottom: 6px;
+   }
+
+    
+   .comment-content-reply-2 {
+      position: relative;
+      left: -62px;
+   }
+   .comment-content-reply-2 .card{
+      position: relative;
+      left: 80px;
+      height: 251px;
+      /* width: 132%; */
+      width: 308px;
+      bottom: 41px;   
+   }
+   .card-text{
+      font-size: 15px;
+      max-width:  372px;
+
+   }
+
+   .user-info-reply-2.active{
+      display: flex;
+      flex-direction: column;
+    }
+   
+   
+    .user-info-reply .user-img{
+       position: relative; 
+       left: -13px;
+    }
+    
+ 
+    .user-info-reply-2.active .user-img-2 {
+       position: relative;
+       left: 38px;
+       BOTTOM: 52px;
+   }
+          
+   } 
+
+
+
+
+  @media screen and (max-width:450px) {
+
+
+   .user-info{
+      display: flex;
+      flex-direction: column;
+   }
+   .user-info .user-img{
+      height: 100px;
+    width: 140px;
+    position: relative;
+    left: 73px;
+    top: 26px;
+   }
+   .comment-content{
+      position: relative;
+      left: -36px;
+      width: 928px;
+   }
+   .comment-content .card{
+      position: relative;
+      left: 19px;
+      /* width: 319px; */
+      width: 332px;
+   }
+   .reply_comment_filed {
+      display: flex;
+      
+      flex-direction: column;
+  }
+  .reply_comment_filed > button {
+   background-color: #343a40;
+   color: #f8f9fa;
+   border: 2px solid transparent;
+   position: relative;
+   bottom: -2px;
+   width: 16%;
+}
+
+
+   .comment-content .action-controller .parent-reply{
+      position: relative;
+    bottom: 5px;
+    right: 243px;
+   }
+   .user-info .comment-content.active{
+      position: relative;
+      left: 42px;
+      width: 286px;
+   }
+
+   .comment-content .action-controller .parent-reply.active{
+      position: relative;
+      right: -1px;
+      bottom: 5px;
+   }
+
+   .comment-content-reply {
+      position: relative;
+      left: -37px;
+      bottom: 42px;
+   }
+   .user-info-reply.active{
+     
+     display: flex;
+     flex-direction: column;
+   }
+
+
+
+
+   .comment-content-reply .card{
+      width: 305px;
+      position: relative;
+      right: 66px;
+   }
+
+
+   .user-info-reply.active .comment-content-reply .action-controller .reply-btn{
+      position: relative;
+      right: 1px;
+      bottom: 6px;
+   }
+
+    
+   .comment-content-reply-2 {
+      position: relative;
+    left: -80px;
+   }
+   .comment-content-reply-2 .card {
+      position: relative;
+      left: 116px;
+      height: 251px;
+      /* width: 132%; */
+      width: 256px;
+      bottom: 41px;
+  }
+   .card-text{
+      font-size: 14px;
+      max-width:  316px;
+
+   }
+
+   .user-info-reply-2.active{
+      display: flex;
+      flex-direction: column;
+    }
+   
+   .user-info-reply-2.active .user-img-2{
+    position: relative; 
+    left: 31px;  
+   } 
+   .user-info-reply .user-img{
+      position: relative; 
+      left: -13px;
+   }
+   input[name="comment_reply"]{
+      padding: 10px 10px;
+      border: 0.5px black solid;
+      border-radius: 5px;
+      width:52%;
+   }
+
+   .user-info-reply-2.active .user-img-2 {
+      position: relative;
+      left: 38px;
+      BOTTOM: 52px;
+  }
+         
+  }
+ .btn.btn-primary{
+		
+   background-color: #343a40;
+   color: #f8f9fa;
+   border: 2px solid transparent;
+   position: relative;
+   bottom: 8px;
+}
+.btn.btn-primary:hover{
+   background-color: #343a40;
+   color: #f8f9fa;
+   border: 2px solid transparent;
+   position: relative;
+   bottom: 8px;
+}
+.reply_comment_filed{
+   display: flex;
+   justify-content: space-between;
+}
+input[name="comment_reply"]{
+   padding: 10px 10px;
+	border: 0.5px black solid;
+	border-radius: 5px;
+	width: 60%;
+}
