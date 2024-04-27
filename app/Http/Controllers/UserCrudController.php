@@ -49,11 +49,11 @@ class UserCrudController extends Controller
     public function update_user(Request $request, $id) {
         $request->validate([
             'name' => 'required|string',
-            'username' => 'required|string',
-            'email' => 'required|email',
-            'adress' => 'required|string',
+            'username' => 'string',
+            'email' => 'email',
+            'adress' => 'string',
             'phone' => 'numeric',
-            'password' => 'required|confirmed'
+            'password' => 'confirmed'
         ]);
     
         $user = User::findOrFail($id);
