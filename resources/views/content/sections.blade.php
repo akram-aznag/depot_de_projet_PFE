@@ -29,9 +29,9 @@
             <div class="col-lg-12">
                 <div class="posts-slide-wrap">
                     <div class="posts-slide" id="posts-slide">
-                        @php $posts = \App\Models\Post::whereBetween('id', [5,14])->get(); @endphp
+                        @php $posts = \App\Models\Post::orderBy('created_at','DESC')->take(3)-> get(); @endphp
                         @foreach($posts as $post)
-                        @if(isset($post->user))
+                        @if(isset($post->user) &&  $post->category)
                             @if($post->is_published == "yes")
                                 <div class="item">
                                     <div class="post-entry d-lg-flex">
@@ -108,7 +108,7 @@
             <!-- Item 1 -->
             @php $posts = \App\Models\Post::get(); @endphp
             @forEach($posts as $post)
-            @if(isset($post->user))
+            @if(isset($post->user) &&  $post->category)
                 @if($post->is_published == "yes")
                     <div class="col-lg-4">
                         <div class="post-entry d-block small-post-entry-v">
@@ -190,10 +190,19 @@
             <span class="next" data-controls="next">@lang('CustomizedLanguage.next')</span>
         </div>
         <div class="most-popular-slider" id="most-popular-center">
-            @php $posts = \App\Models\Post::orderBy('id','desc')->take(6)->get() @endphp
+            @php $posts = \App\Models\Post::select('posts.*')
+            ->selectRaw('COUNT(comments.id) + COUNT(likes.id) AS popularity_score')
+            ->leftJoin('comments', 'posts.id', '=', 'comments.post_id')
+            ->leftJoin('likes', 'posts.id', '=', 'likes.post_id')
+            ->groupBy('posts.id')
+            ->orderByDesc('popularity_score')
+            ->take(4) 
+            ->get(); @endphp
             <!-- Item 1 -->
             @forEach($posts as $post)
-            @if(isset($post->user))
+            @if(isset($post->user) &&  $post->category)
+            @if($post->is_published == "yes")
+
                 <div class="item">
                     <div class="post-entry d-block small-post-entry-v">
                         <div class="thumbnail">
@@ -247,6 +256,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endif
             @endforeach
         </div>

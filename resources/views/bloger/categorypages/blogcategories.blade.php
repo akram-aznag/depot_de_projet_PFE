@@ -43,6 +43,7 @@
                     <div class="row justify-content-center">
                         @if(!empty($posts_category))
                         @foreach($posts_category as $post_category)
+                        @if($post_category->user)
                         <div class="col-lg-9">
                             <div class="post-entry d-md-flex small-horizontal mb-5">
                                 <div class="me-md-5 thumbnail mb-3 mb-md-0">
@@ -72,9 +73,12 @@
                                 </div>
                             </div>
                         </div>
+                        @else 
+                        <p>the posts of category {{$CATEGORY->name}} are no longer exists</p>
+                        @endif
                         @endforeach
                         @else
-                        {{''}}
+                        {{'not exists'}}
                         @endif
                     </div>
                 </div>

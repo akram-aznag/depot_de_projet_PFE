@@ -60,7 +60,12 @@ class CategoryController extends Controller
     }
     public function delete_category(string $id){
         $category=Category::where('id',$id)->first();
+        $posts=Post::where('category_id',$category->id)->get();
+        foreach($posts as $post){
+            $post->delete();
+        }
         $is_deleted=$category->delete();
+        
         if($is_deleted){
             notify()->warning('the '.$category->name.' is deleted!');
         }

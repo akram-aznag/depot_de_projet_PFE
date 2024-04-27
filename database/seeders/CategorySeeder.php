@@ -108,6 +108,15 @@ class CategorySeeder extends Seeder
                 'meta_description'=>'Explore educational resources and gain valuable insights into learning methodologies and skill development.',
                 'meta_keywords'=>'education, learning, e-learning, skill development, educational resources',
             ],
+            [
+                'name' => 'Intimacy & Relationships',
+                'slug' => 'intimacy-relationships',
+                'title' => 'Intimacy & Relationships Articles',
+                'meta_title' => 'Explore Intimacy & Relationships: Tips, Advice, and Discussions',
+                'meta_description' => 'Discover articles offering tips, advice, and discussions on improving intimacy and relationships.',
+                'meta_keywords' => 'intimacy, relationships, love, sexual health, tips, advice',
+            ]
+            
         ]);
         
     }

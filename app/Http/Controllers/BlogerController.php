@@ -28,8 +28,7 @@ class BlogerController extends Controller
         $request->validate([
             'name'=>'required|string|min:3|max:30',
             'username'=>'required|string|min:3|max:40',
-            'email'=>'required|email',
-            'adress'=>'required|string',
+            'adress'=>'string',
             'phone'=>'numeric|regex:/^[0-9]{10}$/',
         ]);
         $user=User::where('id',$id)->first();

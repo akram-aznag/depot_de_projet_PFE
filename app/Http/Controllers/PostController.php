@@ -80,11 +80,11 @@ class PostController extends Controller
     public function update_blog(Request $request,string $user_id,string $id){
 
         $request->validate([
-             'title' => 'required|string',
-             'description' => 'required|string',
-             'meta_description' => 'nullable|string',
-             'meta_keywords' => 'nullable|string',
-             'category' => 'required',
+             'title' => 'string',
+             'description' => 'string',
+             'meta_description' => 'string',
+             'meta_keywords' => 'string',
+            
          ]);
         $post= Post::where('id',$id)->first();
         

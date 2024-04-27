@@ -78,7 +78,7 @@
                             @enderror
                         </div>
                         <div class="mb-2">
-                            <label class="labels">@lang('CustomizedLanguage.profile.user_name')</label>
+                            <label class="labels">@lang('CustomizedLanguage.profile.phone_number')</label>
                             <input type="text" class="form-control  @error('phone') is-invalid @enderror" value="{{ $user_data->phone }}" name="phone">
                             @error('phone')
                             <span class="text-danger">
@@ -102,7 +102,7 @@
                     <div class="col-lg-6">
                         <div class="mb-2">
                             <label class="labels">@lang('CustomizedLanguage.profile.email')</label>
-                            <input type="text" class="form-control  @error('email') is-invalid @enderror" value="{{ $user_data->email }}" name="email">
+                            <input type="text" class="form-control  @error('email') is-invalid @enderror" value="{{ $user_data->email }}" name="email" disabled>
                             @error('email')
                             <div class="text-danger">
 
