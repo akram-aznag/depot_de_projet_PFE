@@ -27,7 +27,7 @@ class BlogerController extends Controller
     public function update_bloger_profile(Request $request,$id){
         $request->validate([
             'name'=>'required|string|min:3|max:30',
-            'username'=>'required|string|min:3|max:40',
+            'username'=>'string|min:3|max:40',
             'adress'=>'string',
             'phone'=>'numeric|regex:/^[0-9]{10}$/',
         ]);
@@ -35,7 +35,7 @@ class BlogerController extends Controller
         $result= $user->update([
             'name'=>$request->name,
             'username'=>$request->username,
-            'email'=>$request->email,
+           
             'adress'=>$request->adress,
             'phone'=>$request->phone,
 

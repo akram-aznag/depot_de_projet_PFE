@@ -58,6 +58,7 @@
                 <tbody>
                  
                  @foreach($comments as $comment)
+                 
                  <tr>
                     <td>{{$comment->id}}</td>
                     <td>{{$comment->post->title}}</td>

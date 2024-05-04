@@ -18,12 +18,10 @@ class CommentController extends Controller
     }
 
     public function show_bloger_comments(){
-        $user=User::where('id',Auth::user()->id)->first();
+       
         
-        $posts=Post::get();
-        foreach($posts as $post){
-            $comments=Comment::where('user_id',$user->id)->where('post_id',$post->id)->get();
-        }
+        $comments=Comment::where('user_id',Auth::user()->id)->get();
+       
         return view('bloger.commentcrud.manage_comments')->with('comments',$comments);
     }
 

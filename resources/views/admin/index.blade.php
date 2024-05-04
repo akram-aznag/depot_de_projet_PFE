@@ -7,10 +7,7 @@
                     <h4 class="mb-3 mb-md-0"> @lang('CustomizedLanguage.admin_attributes.welcome_to_dashboad')</h4>
                   </div>
                   <div class="d-flex align-items-center flex-wrap text-nowrap">
-                    <div class="input-group flatpickr wd-200 me-2 mb-2 mb-md-0" id="dashboardDate">
-                      <span class="input-group-text input-group-addon bg-transparent border-primary" data-toggle><i data-feather="calendar" class="text-primary"></i></span>
-                      <input type="text" class="form-control bg-transparent border-primary" placeholder="Select date" data-input>
-                    </div>
+                    
                    
                   </div>
                 </div>
@@ -135,7 +132,7 @@
                     <div class="card">
                       <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline">
-                          <a href="" style="text-decoration: none;color:#d1d6da">
+                          <a href="{{route('messages')}}" style="text-decoration: none;color:#d1d6da">
 
                           <h6 class="card-title mb-0"> @lang('CustomizedLanguage.contact_messages.messages')</h6>
                           <a href="" style="text-decoration: none;color:#d1d6da">
@@ -149,7 +146,7 @@
                         </div>
                         <div class="row">
                           <div class="col-6 col-md-12 col-xl-5">
-                          <a href="" style="text-decoration: none;color:#d1d6da">
+                          <a href="{{route('messages')}}" style="text-decoration: none;color:#d1d6da">
 
                             <h3 class="mb-2">{{\App\Models\Message::get()->count()}} message</h3>
                           </a>

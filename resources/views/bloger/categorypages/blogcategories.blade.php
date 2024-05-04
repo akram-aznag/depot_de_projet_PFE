@@ -54,9 +54,9 @@
                                         <a href="#" class="category">{{$post_category->category->name}}</a>
                                         <span class="date">{{date('Y-m-d',strtotime( $post_category->created_at))}}</span>
                                     </div>
-                                    <h2 class="heading"><a href="single.html">{{$post_category->title}}.</a></h2>
+                                    <h2 class="heading"><a href="{{route('single',['slug'=>$post_category->slug])}}">{{$post_category->title}}.</a></h2>
                                     <p>{{$post_category->description}}.</p>
-                                    <a href="#" class="post-author d-flex align-items-center">
+                                    <a href="{{route('single',['slug'=>$post_category->slug])}}" class="post-author d-flex align-items-center">
                                         <div class="author-pic">
                                             <img  src={{
                                                 !empty($post_category->user->photo)
@@ -77,8 +77,7 @@
                         <p>the posts of category {{$CATEGORY->name}} are no longer exists</p>
                         @endif
                         @endforeach
-                        @else
-                        {{'not exists'}}
+                      
                         @endif
                     </div>
                 </div>
@@ -86,4 +85,10 @@
         </div>
     </div>
 </div>
+<script>
+document.querySelector('select').addEventListener("change",(e)=>{
+  const form=e.target.closest("form");
+  return form.submit();
+})
+</script>
 @endsection
